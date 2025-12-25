@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>CLENA • Produtos & Soluções</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{box-sizing:border-box;font-family:Inter,Arial}
+body{
+  margin:0;
+  min-height:100vh;
+  background:radial-gradient(circle at top,#0b132b,#000 65%);
+  color:#fff;
+}
+
+/* HEADER */
+header{
+  max-width:1200px;
+  margin:60px auto 40px;
+  padding:0 20px;
+  text-align:center;
+}
+header h1{
+  font-size:42px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+header span{
+  background:linear-gradient(135deg,#38bdf8,#7c3aed);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+header p{
+  color:#94a3b8;
+  font-size:18px;
+}
+
+/* GRID */
+.grid{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:26px;
+}
+
+/* CARD */
+.card{
+  background:rgba(15,23,42,.9);
+  border-radius:22px;
+  padding:24px;
+  cursor:pointer;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,transparent,rgba(56,189,248,.15));
+  opacity:0;
+  transition:.3s;
+}
+.card:hover::after{opacity:1}
+
+.card h3{
+  margin-top:0;
+  font-size:22px;
+}
+.card p{
+  color:#94a3b8;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:20;
+}
+.modal-box{
+  background:#0f172a;
+  width:92%;
+  max-width:760px;
+  border-radius:26px;
+  padding:28px;
+  animation:pop .4s ease;
+}
+@keyframes pop{
+  from{transform:scale(.9);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.modal-header h2{margin:0}
+.close{
+  font-size:28px;
+  cursor:pointer;
+  opacity:.7;
+}
+.close:hover{opacity:1}
+
+.modal-content{
+  margin-top:18px;
+}
+.modal-content p{
+  color:#cbd5f5;
+  line-height:1.7;
+}
+
+/* VIDEO */
+.video{
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:16px;
+  overflow:hidden;
+  margin:18px 0;
+}
+.video iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#38bdf8,#7c3aed);
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+  margin-top:12px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:#64748b;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1><span>CLENA</span> • Produtos & Soluções</h1>
+  <p>Tecnologia, automação e sistemas sob medida</p>
+</header>
+
+<div class="grid">
+  <div class="card" onclick="openModal(0)">
+    <h3>Gerador de QR Code</h3>
+    <p>Criação, gestão e redirecionamento inteligente de QR Codes.</p>
+  </div>
+
+  <div class="card" onclick="openModal(1)">
+    <h3>Painel Administrativo</h3>
+    <p>Gestão completa de dados, usuários e operações.</p>
+  </div>
+
+  <div class="card" onclick="openModal(2)">
+    <h3>Sistema Personalizado</h3>
+    <p>Soluções sob medida para o seu negócio.</p>
+  </div>
+</div>
+
+<footer>
+  © CLENA • Todos os direitos reservados
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 id="mTitle"></h2>
+      <div class="close" onclick="closeModal()">×</div>
+    </div>
+
+    <div class="modal-content">
+      <p id="mDesc"></p>
+
+      <div class="video" id="mVideo"></div>
+
+      <a id="mLink" class="btn" target="_blank">Ver projeto</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const projetos=[
+  {
+    titulo:"Gerador de QR Code",
+    desc:"Sistema completo para criação, edição e monitoramento de QR Codes com redirecionamento dinâmico.",
+    video:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+    link:"https://qr.clena.com.br"
+  },
+  {
+    titulo:"Painel Administrativo",
+    desc:"Dashboard moderno para controle de usuários, dados e relatórios em tempo real.",
+    video:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+    link:"https://admin.clena.com.br"
+  },
+  {
+    titulo:"Sistema Personalizado",
+    desc:"Projetos exclusivos desenvolvidos sob demanda para empresas.",
+    video:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+    link:"https://clena.com.br"
+  }
+];
+
+function openModal(i){
+  const p=projetos[i];
+  mTitle.textContent=p.titulo;
+  mDesc.textContent=p.desc;
+  mVideo.innerHTML=`<iframe src="${p.video}" allowfullscreen></iframe>`;
+  mLink.href=p.link;
+  modal.style.display="flex";
+}
+function closeModal(){
+  modal.style.display="none";
+  mVideo.innerHTML="";
+}
+</script>
+
+</body>
+</html>
