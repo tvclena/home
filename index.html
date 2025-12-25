@@ -7,19 +7,14 @@
 
 <style>
 *{box-sizing:border-box;font-family:Inter,Arial}
-html,body{
-  margin:0;
-  width:100%;
-  height:100%;
-}
-
+html,body{margin:0;width:100%;height:100%}
 body{
   background:radial-gradient(60% 40% at 50% 0%, #1e293b 0%, #020617 70%);
   color:#fff;
   overflow-x:hidden;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   min-height:100vh;
   max-width:1400px;
@@ -30,79 +25,37 @@ body{
   gap:40px;
   align-items:center;
 }
-.hero h1{
-  font-size:56px;
-  font-weight:900;
-  line-height:1.1;
-}
+.hero h1{font-size:56px;font-weight:900}
 .hero h1 span{
   background:linear-gradient(135deg,#38bdf8,#7c3aed);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-.hero p{
-  color:#94a3b8;
-  font-size:18px;
-  line-height:1.7;
-  margin:22px 0;
-}
+.hero p{color:#94a3b8;font-size:18px}
 
-/* ===== VIDEO HERO ===== */
+/* VIDEO HERO */
 .video-hero{
-  position:relative;
-  width:100%;
-  height:100%;
   border-radius:30px;
   overflow:hidden;
   box-shadow:0 40px 100px rgba(0,0,0,.85);
 }
 .video-hero video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  cursor:pointer;
+  width:100%;height:100%;object-fit:cover;cursor:pointer;
 }
 
-/* CONTROLS */
-.controls{
-  position:absolute;
-  bottom:16px;
-  left:16px;
-  display:flex;
-  gap:10px;
-}
-.ctrl{
-  width:44px;height:44px;
-  border-radius:50%;
-  background:rgba(2,6,23,.75);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-size:18px;
-}
-
-/* ===== SECTION ===== */
+/* SECTION */
 .section{
   max-width:1400px;
   margin:auto;
   padding:60px 20px 100px;
 }
-.section h2{
-  font-size:34px;
-  margin-bottom:30px;
-}
-
-/* ===== GRID ===== */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
   gap:28px;
 }
-
-/* CARD */
 .card{
-  background:rgba(15,23,42,.9);
+  background:#0f172a;
   border-radius:28px;
   padding:28px;
   cursor:pointer;
@@ -112,14 +65,11 @@ body{
   transform:translateY(-12px);
   box-shadow:0 30px 90px rgba(0,0,0,.85);
 }
-.card h3{margin:0 0 10px;font-size:22px}
-.card p{color:#94a3b8;font-size:14px;line-height:1.6}
 
-/* ===== MODAL ===== */
+/* MODAL */
 .modal{
-  position:fixed;
-  inset:0;
-  background:rgba(2,6,23,.95);
+  position:fixed;inset:0;
+  background:rgba(2,6,23,.96);
   display:none;
   align-items:center;
   justify-content:center;
@@ -127,27 +77,21 @@ body{
 }
 .modal-box{
   width:95%;
-  max-width:960px;
-  max-height:92vh;
+  max-width:1100px;
   background:#020617;
   border-radius:30px;
   padding:28px;
-  display:flex;
-  flex-direction:column;
   animation:scaleIn .35s ease;
-  overflow-y:auto;
 }
 @keyframes scaleIn{
   from{opacity:0;transform:scale(.9)}
   to{opacity:1;transform:scale(1)}
 }
-
 .modal-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
-.modal-header h3{margin:0;font-size:26px}
 .close{font-size:34px;cursor:pointer}
 
 /* VIDEO MODAL */
@@ -162,78 +106,70 @@ body{
   border-radius:22px;
 }
 
-/* BUTTON */
+/* IMAGES ROW */
+.images-row{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  padding-bottom:10px;
+  scrollbar-width:none;
+}
+.images-row::-webkit-scrollbar{display:none}
+.images-row img{
+  height:180px;
+  border-radius:18px;
+  flex-shrink:0;
+  object-fit:cover;
+  cursor:pointer;
+}
+
+/* ACTION */
+.action{
+  margin-top:24px;
+  display:flex;
+  justify-content:flex-end;
+}
 .btn{
-  align-self:flex-start;
-  padding:14px 36px;
+  padding:16px 40px;
   border-radius:18px;
   background:linear-gradient(135deg,#38bdf8,#7c3aed);
   color:#fff;
   font-weight:900;
   text-decoration:none;
-  margin-top:10px;
 }
 
-/* ===== MOBILE ===== */
 @media(max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-    padding-top:40px;
-  }
+  .hero{grid-template-columns:1fr}
   .hero h1{font-size:40px}
+  .images-row img{height:140px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <div>
     <h1><span>CLENA</span><br>Soluções Digitais</h1>
-    <p>
-      Produtos tecnológicos com design premium,
-      experiência profissional e performance real.
-    </p>
+    <p>Produtos profissionais, rápidos e escaláveis.</p>
   </div>
 
   <div class="video-hero">
     <video id="heroVideo" autoplay muted loop playsinline>
-      <source src="https://sessao99.b-cdn.net/filmes/A%20Menina%20Que%20Roubava%20Livros%20%5B2013%5D%20-%20Dublado%20(Series%20Zoiudo).mp4" type="video/mp4">
+      <source src="https://SEU-BUNNY/hero.mp4">
     </video>
-
-    <div class="controls">
-      <div class="ctrl" onclick="togglePlay()">▶️</div>
-      <div class="ctrl" onclick="toggleSound()">🔊</div>
-      <div class="ctrl" onclick="restart()">⏮</div>
-    </div>
   </div>
 </section>
 
-<!-- PROJETOS -->
 <section class="section">
-  <h2>Projetos</h2>
   <div class="grid">
-    <div class="card" onclick="openModal(0)">
-      <h3>Gerador de QR Code</h3>
-      <p>Gestão inteligente de QR Codes.</p>
-    </div>
-    <div class="card" onclick="openModal(1)">
-      <h3>Painel Administrativo</h3>
-      <p>Dashboard profissional.</p>
-    </div>
-    <div class="card" onclick="openModal(2)">
-      <h3>Sistema de Gestão</h3>
-      <p>Controle empresarial.</p>
-    </div>
-    <div class="card" onclick="openModal(3)">
-      <h3>Soluções Customizadas</h3>
-      <p>Projetos sob medida.</p>
-    </div>
+    <div class="card" onclick="openModal(0)">Gerador de QR Code</div>
+    <div class="card" onclick="openModal(1)">Painel Administrativo</div>
+    <div class="card" onclick="openModal(2)">Sistema de Gestão</div>
+    <div class="card" onclick="openModal(3)">Projetos Customizados</div>
   </div>
 </section>
 
-<!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-box">
     <div class="modal-header">
@@ -242,8 +178,12 @@ body{
     </div>
 
     <div class="video-modal" id="mVideo"></div>
-    <p id="mDesc"></p>
-    <a id="mLink" class="btn" target="_blank">Acessar projeto</a>
+
+    <div class="images-row" id="mImages"></div>
+
+    <div class="action">
+      <a id="mLink" class="btn" target="_blank">Ver projeto</a>
+    </div>
   </div>
 </div>
 
@@ -251,63 +191,69 @@ body{
 const heroVideo=document.getElementById("heroVideo");
 const modal=document.getElementById("modal");
 
-function toggleSound(){ heroVideo.muted=!heroVideo.muted }
-function togglePlay(){ heroVideo.paused?heroVideo.play():heroVideo.pause() }
-function restart(){ heroVideo.currentTime=0; heroVideo.play() }
-
 const projetos=[
-  {
-    t:"Gerador de QR Code",
-    d:"Sistema completo para criação e redirecionamento.",
-    v:"https://SEU-BUNNY/qr.mp4",
-    l:"https://qr.clena.com.br"
-  },
-  {
-    t:"Painel Administrativo",
-    d:"Dashboard avançado.",
-    v:"https://sessao99.b-cdn.net/filmes/A%20Menina%20Que%20Roubava%20Livros%20%5B2013%5D%20-%20Dublado%20(Series%20Zoiudo).mp4",
-    l:"https://admin.clena.com.br"
-  },
-  {
-    t:"Sistema de Gestão",
-    d:"Controle empresarial.",
-    v:"https://SEU-BUNNY/gestao.mp4",
-    l:"https://gestao.clena.com.br"
-  },
-  {
-    t:"Soluções Customizadas",
-    d:"Projetos sob medida.",
-    v:"https://SEU-BUNNY/custom.mp4",
-    l:"https://clena.com.br"
-  }
+{
+ t:"Gerador de QR Code",
+ v:"https://SEU-BUNNY/qr.mp4",
+ imgs:[
+  "https://SEU-BUNNY/qr1.jpg",
+  "https://SEU-BUNNY/qr2.jpg",
+  "https://SEU-BUNNY/qr3.jpg"
+ ],
+ l:"https://qr.clena.com.br"
+},
+{
+ t:"Painel Administrativo",
+ v:"https://SEU-BUNNY/painel.mp4",
+ imgs:[
+  "https://SEU-BUNNY/p1.jpg",
+  "https://SEU-BUNNY/p2.jpg",
+  "https://SEU-BUNNY/p3.jpg"
+ ],
+ l:"https://admin.clena.com.br"
+},
+{
+ t:"Sistema de Gestão",
+ v:"https://SEU-BUNNY/gestao.mp4",
+ imgs:[
+  "https://SEU-BUNNY/g1.jpg",
+  "https://SEU-BUNNY/g2.jpg",
+  "https://SEU-BUNNY/g3.jpg"
+ ],
+ l:"https://gestao.clena.com.br"
+},
+{
+ t:"Projetos Customizados",
+ v:"https://SEU-BUNNY/custom.mp4",
+ imgs:[
+  "https://SEU-BUNNY/c1.jpg",
+  "https://SEU-BUNNY/c2.jpg",
+  "https://SEU-BUNNY/c3.jpg"
+ ],
+ l:"https://clena.com.br"
+}
 ];
 
 function openModal(i){
-  const p=projetos[i];
+ const p=projetos[i];
+ heroVideo.pause(); heroVideo.muted=true;
+ document.body.style.overflow="hidden";
 
-  heroVideo.pause();
-  heroVideo.muted=true;
+ mTitle.textContent=p.t;
+ mLink.href=p.l;
 
-  document.body.style.overflow="hidden";
-  mTitle.textContent=p.t;
-  mDesc.textContent=p.d;
-  mLink.href=p.l;
+ mVideo.innerHTML=`<video autoplay controls><source src="${p.v}"></video>`;
+ mImages.innerHTML=p.imgs.map(img=>`<img src="${img}">`).join("");
 
-  mVideo.innerHTML=`
-    <video autoplay controls playsinline>
-      <source src="${p.v}" type="video/mp4">
-    </video>
-  `;
-
-  modal.style.display="flex";
+ modal.style.display="flex";
 }
 
 function closeModal(){
-  modal.style.display="none";
-  mVideo.innerHTML="";
-  document.body.style.overflow="";
-  heroVideo.play();
-  heroVideo.muted=true;
+ modal.style.display="none";
+ mVideo.innerHTML="";
+ mImages.innerHTML="";
+ document.body.style.overflow="";
+ heroVideo.play(); heroVideo.muted=true;
 }
 </script>
 
