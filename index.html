@@ -7,24 +7,31 @@
 
 <style>
 *{box-sizing:border-box;font-family:Inter,Arial}
-body{
+html,body{
   margin:0;
+  width:100%;
+  height:100%;
+}
+
+body{
   background:radial-gradient(60% 40% at 50% 0%, #1e293b 0%, #020617 70%);
   color:#fff;
+  overflow-x:hidden;
 }
 
 /* ===== HERO ===== */
 .hero{
-  max-width:1200px;
-  margin:60px auto 80px;
-  padding:0 20px;
+  min-height:100vh;
+  max-width:1400px;
+  margin:auto;
+  padding:60px 20px;
   display:grid;
   grid-template-columns:1.2fr .8fr;
   gap:40px;
   align-items:center;
 }
 .hero h1{
-  font-size:52px;
+  font-size:56px;
   font-weight:900;
   line-height:1.1;
 }
@@ -43,9 +50,11 @@ body{
 /* ===== VIDEO HERO ===== */
 .video-hero{
   position:relative;
-  border-radius:28px;
+  width:100%;
+  height:100%;
+  border-radius:30px;
   overflow:hidden;
-  box-shadow:0 30px 90px rgba(0,0,0,.8);
+  box-shadow:0 40px 100px rgba(0,0,0,.85);
 }
 .video-hero video{
   width:100%;
@@ -57,15 +66,15 @@ body{
 /* CONTROLS */
 .controls{
   position:absolute;
-  bottom:14px;
-  left:14px;
+  bottom:16px;
+  left:16px;
   display:flex;
   gap:10px;
 }
 .ctrl{
   width:44px;height:44px;
   border-radius:50%;
-  background:rgba(2,6,23,.7);
+  background:rgba(2,6,23,.75);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -73,66 +82,75 @@ body{
   font-size:18px;
 }
 
-/* ===== GRID ===== */
+/* ===== SECTION ===== */
 .section{
-  max-width:1200px;
+  max-width:1400px;
   margin:auto;
-  padding:0 20px 80px;
+  padding:60px 20px 100px;
 }
 .section h2{
   font-size:34px;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
+
+/* ===== GRID ===== */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
   gap:28px;
 }
 
 /* CARD */
 .card{
   background:rgba(15,23,42,.9);
-  border-radius:26px;
-  padding:26px;
+  border-radius:28px;
+  padding:28px;
   cursor:pointer;
   transition:.35s;
 }
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 30px 80px rgba(0,0,0,.8);
+  transform:translateY(-12px);
+  box-shadow:0 30px 90px rgba(0,0,0,.85);
 }
 .card h3{margin:0 0 10px;font-size:22px}
 .card p{color:#94a3b8;font-size:14px;line-height:1.6}
 
 /* ===== MODAL ===== */
 .modal{
-  position:fixed;inset:0;
-  background:rgba(2,6,23,.9);
+  position:fixed;
+  inset:0;
+  background:rgba(2,6,23,.95);
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:50;
+  z-index:100;
 }
 .modal-box{
-  width:92%;
-  max-width:860px;
+  width:95%;
+  max-width:960px;
+  max-height:92vh;
   background:#020617;
   border-radius:30px;
   padding:28px;
+  display:flex;
+  flex-direction:column;
   animation:scaleIn .35s ease;
+  overflow-y:auto;
 }
 @keyframes scaleIn{
   from{opacity:0;transform:scale(.9)}
   to{opacity:1;transform:scale(1)}
 }
+
 .modal-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 .modal-header h3{margin:0;font-size:26px}
-.close{font-size:30px;cursor:pointer}
+.close{font-size:34px;cursor:pointer}
 
+/* VIDEO MODAL */
 .video-modal{
   width:100%;
   aspect-ratio:16/9;
@@ -141,23 +159,28 @@ body{
 .video-modal video{
   width:100%;
   height:100%;
-  border-radius:20px;
+  border-radius:22px;
 }
 
+/* BUTTON */
 .btn{
-  display:inline-block;
-  padding:14px 34px;
-  border-radius:16px;
+  align-self:flex-start;
+  padding:14px 36px;
+  border-radius:18px;
   background:linear-gradient(135deg,#38bdf8,#7c3aed);
   color:#fff;
   font-weight:900;
   text-decoration:none;
+  margin-top:10px;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .hero h1{font-size:38px}
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:40px;
+  }
+  .hero h1{font-size:40px}
 }
 </style>
 </head>
@@ -169,15 +192,14 @@ body{
   <div>
     <h1><span>CLENA</span><br>Soluções Digitais</h1>
     <p>
-      Produtos tecnológicos com design premium, performance
-      e experiência profissional.
+      Produtos tecnológicos com design premium,
+      experiência profissional e performance real.
     </p>
   </div>
 
   <div class="video-hero">
     <video id="heroVideo" autoplay muted loop playsinline>
-      <!-- 🔁 BUNNY VIDEO -->
-      <source src="https://sessao99.b-cdn.net/filmes/Episodio%202%20-%20Me%20tornei%20o%20senhor%20do%20banheiro.mp4" type="video/mp4">
+      <source src="https://SEU-BUNNY/video-hero.mp4" type="video/mp4">
     </video>
 
     <div class="controls">
@@ -194,15 +216,15 @@ body{
   <div class="grid">
     <div class="card" onclick="openModal(0)">
       <h3>Gerador de QR Code</h3>
-      <p>Gestão completa de QR Codes inteligentes.</p>
+      <p>Gestão inteligente de QR Codes.</p>
     </div>
     <div class="card" onclick="openModal(1)">
       <h3>Painel Administrativo</h3>
-      <p>Dashboard profissional e escalável.</p>
+      <p>Dashboard profissional.</p>
     </div>
     <div class="card" onclick="openModal(2)">
       <h3>Sistema de Gestão</h3>
-      <p>Controle total de processos.</p>
+      <p>Controle empresarial.</p>
     </div>
     <div class="card" onclick="openModal(3)">
       <h3>Soluções Customizadas</h3>
@@ -227,40 +249,34 @@ body{
 
 <script>
 const heroVideo=document.getElementById("heroVideo");
+const modal=document.getElementById("modal");
 
-function toggleSound(){
-  heroVideo.muted=!heroVideo.muted;
-}
-function togglePlay(){
-  heroVideo.paused?heroVideo.play():heroVideo.pause();
-}
-function restart(){
-  heroVideo.currentTime=0;
-  heroVideo.play();
-}
+function toggleSound(){ heroVideo.muted=!heroVideo.muted }
+function togglePlay(){ heroVideo.paused?heroVideo.play():heroVideo.pause() }
+function restart(){ heroVideo.currentTime=0; heroVideo.play() }
 
 const projetos=[
   {
     t:"Gerador de QR Code",
-    d:"Sistema completo para criação e redirecionamento de QR Codes.",
+    d:"Sistema completo para criação e redirecionamento.",
     v:"https://SEU-BUNNY/qr.mp4",
     l:"https://qr.clena.com.br"
   },
   {
     t:"Painel Administrativo",
-    d:"Dashboard avançado para gestão.",
+    d:"Dashboard avançado.",
     v:"https://SEU-BUNNY/painel.mp4",
     l:"https://admin.clena.com.br"
   },
   {
     t:"Sistema de Gestão",
-    d:"Controle de operações empresariais.",
+    d:"Controle empresarial.",
     v:"https://SEU-BUNNY/gestao.mp4",
     l:"https://gestao.clena.com.br"
   },
   {
     t:"Soluções Customizadas",
-    d:"Desenvolvimento sob medida.",
+    d:"Projetos sob medida.",
     v:"https://SEU-BUNNY/custom.mp4",
     l:"https://clena.com.br"
   }
@@ -268,18 +284,30 @@ const projetos=[
 
 function openModal(i){
   const p=projetos[i];
+
+  heroVideo.pause();
+  heroVideo.muted=true;
+
+  document.body.style.overflow="hidden";
   mTitle.textContent=p.t;
   mDesc.textContent=p.d;
-  mVideo.innerHTML=`
-    <video autoplay muted controls playsinline>
-      <source src="${p.v}" type="video/mp4">
-    </video>`;
   mLink.href=p.l;
+
+  mVideo.innerHTML=`
+    <video autoplay controls playsinline>
+      <source src="${p.v}" type="video/mp4">
+    </video>
+  `;
+
   modal.style.display="flex";
 }
+
 function closeModal(){
   modal.style.display="none";
   mVideo.innerHTML="";
+  document.body.style.overflow="";
+  heroVideo.play();
+  heroVideo.muted=true;
 }
 </script>
 
