@@ -19,10 +19,10 @@ body{
   min-height:100vh;
   max-width:1400px;
   margin:auto;
-  padding:60px 20px;
+  padding:80px 20px 40px;
   display:grid;
   grid-template-columns:1.2fr .8fr;
-  gap:40px;
+  gap:50px;
   align-items:center;
 }
 .hero h1{
@@ -39,66 +39,82 @@ body{
   color:#94a3b8;
   font-size:18px;
   max-width:520px;
+  margin-top:16px;
 }
 
-/* VIDEO HERO */
-.video-hero{
-  border-radius:30px;
+/* HERO VIDEO */
+.hero-video{
+  border-radius:32px;
   overflow:hidden;
-  box-shadow:0 40px 100px rgba(0,0,0,.85);
+  box-shadow:0 40px 120px rgba(0,0,0,.85);
 }
-.video-hero video{
+.hero-video video{
   width:100%;
   height:100%;
   object-fit:cover;
   cursor:pointer;
 }
 
-/* SECTION */
+/* PROJECTS */
 .section{
   max-width:1400px;
   margin:auto;
-  padding:60px 20px 120px;
+  padding:80px 20px 120px;
 }
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:28px;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:32px;
 }
 .card{
   background:#0f172a;
   border-radius:28px;
-  padding:28px;
-  cursor:pointer;
+  padding:32px;
   transition:.35s;
 }
 .card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 30px 90px rgba(0,0,0,.85);
+  transform:translateY(-10px);
+  box-shadow:0 40px 100px rgba(0,0,0,.9);
 }
-.card h3{margin:0 0 8px}
-.card p{color:#94a3b8;font-size:15px}
+.card h3{margin:0 0 10px}
+.card p{
+  color:#94a3b8;
+  font-size:15px;
+  margin-bottom:20px;
+}
+.card button{
+  padding:14px 28px;
+  border-radius:18px;
+  border:none;
+  font-weight:900;
+  cursor:pointer;
+  background:linear-gradient(135deg,#38bdf8,#7c3aed);
+  color:#fff;
+}
 
 /* MODAL */
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(2,6,23,.96);
+  background:rgba(2,6,23,.75);
+  backdrop-filter:blur(6px);
   display:none;
   align-items:center;
   justify-content:center;
   z-index:100;
 }
 .modal-box{
-  width:95%;
+  width:90%;
   max-width:1100px;
   background:#020617;
-  border-radius:30px;
+  border-radius:32px;
   padding:28px;
-  animation:scaleIn .35s ease;
+  animation:scale .35s ease;
+  max-height:90vh;
+  overflow:hidden;
 }
-@keyframes scaleIn{
-  from{opacity:0;transform:scale(.9)}
+@keyframes scale{
+  from{opacity:0;transform:scale(.92)}
   to{opacity:1;transform:scale(1)}
 }
 .modal-header{
@@ -106,51 +122,59 @@ body{
   justify-content:space-between;
   align-items:center;
 }
+.modal-header h3{margin:0}
 .close{
   font-size:34px;
   cursor:pointer;
+  line-height:1;
 }
+
+/* MODAL BODY */
+.modal-body{
+  margin-top:18px;
+  overflow-y:auto;
+  max-height:70vh;
+  scrollbar-width:none;
+}
+.modal-body::-webkit-scrollbar{display:none}
 
 /* VIDEO MODAL */
 .video-modal{
   width:100%;
   aspect-ratio:16/9;
-  margin:20px 0;
+  margin-bottom:24px;
 }
 .video-modal video{
   width:100%;
   height:100%;
-  border-radius:22px;
+  border-radius:24px;
 }
 
-/* IMAGES ROW */
-.images-row{
+/* IMAGES */
+.images{
   display:flex;
   gap:18px;
-  overflow-x:auto;
-  padding-bottom:10px;
-  scrollbar-width:none;
+  margin-bottom:28px;
 }
-.images-row::-webkit-scrollbar{display:none}
-.images-row img{
-  height:180px;
-  border-radius:18px;
-  flex-shrink:0;
+.images img{
+  width:100%;
+  max-width:260px;
+  height:160px;
   object-fit:cover;
+  border-radius:20px;
 }
 
-/* ACTION */
-.action{
-  margin-top:24px;
+/* CTA */
+.cta{
   display:flex;
   justify-content:flex-end;
 }
-.btn{
-  padding:16px 40px;
-  border-radius:18px;
+.cta a{
+  padding:16px 44px;
+  border-radius:20px;
+  font-weight:900;
   background:linear-gradient(135deg,#38bdf8,#7c3aed);
   color:#fff;
-  font-weight:900;
   text-decoration:none;
 }
 
@@ -159,60 +183,36 @@ footer{
   background:#020617;
   border-top:1px solid #1e293b;
 }
-.footer-inner{
+.footer{
   max-width:1400px;
   margin:auto;
-  padding:60px 20px 40px;
+  padding:60px 20px;
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
   gap:40px;
 }
-.footer-logo{
-  font-size:26px;
-  font-weight:900;
-}
-.footer-logo span{
-  background:linear-gradient(135deg,#38bdf8,#7c3aed);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.footer p{
+.footer h4{margin-bottom:14px}
+.footer p,.footer a{
   color:#94a3b8;
   font-size:14px;
   line-height:1.6;
 }
-.footer h4{
-  margin-bottom:12px;
-}
-.footer a{
-  display:block;
-  color:#cbd5f5;
-  text-decoration:none;
-  margin-bottom:8px;
-  font-size:14px;
-}
+.footer a{text-decoration:none}
 .footer a:hover{text-decoration:underline}
 .footer-bottom{
-  border-top:1px solid #1e293b;
   text-align:center;
   padding:18px;
-  color:#64748b;
+  border-top:1px solid #1e293b;
   font-size:13px;
+  color:#64748b;
 }
 
 /* MOBILE */
 @media(max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-    padding-top:40px;
-  }
-  .hero h1{font-size:38px}
-  .hero p{font-size:16px}
-  .images-row img{height:140px}
-  .footer-inner{
-    grid-template-columns:1fr;
-    gap:30px;
-  }
+  .hero{grid-template-columns:1fr}
+  .hero h1{font-size:40px}
+  .images{flex-direction:column}
+  .footer{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -225,74 +225,70 @@ footer{
     <h1><span>CLENA</span><br>Soluções Digitais</h1>
     <p>Plataformas modernas, sistemas inteligentes e produtos digitais prontos para escalar o seu negócio.</p>
   </div>
-
-  <div class="video-hero">
+  <div class="hero-video">
     <video id="heroVideo" autoplay muted loop playsinline>
       <source src="https://SEU-BUNNY/hero.mp4">
     </video>
   </div>
 </section>
 
-<!-- PROJETOS -->
+<!-- PROJECTS -->
 <section class="section">
   <div class="grid">
-    <div class="card" onclick="openModal(0)">
+    <div class="card">
       <h3>Gerador de QR Code</h3>
       <p>Criação, controle e métricas de QR Codes profissionais.</p>
+      <button onclick="openModal(0)">Ver detalhes</button>
     </div>
-    <div class="card" onclick="openModal(1)">
+    <div class="card">
       <h3>Painel Administrativo</h3>
       <p>Gestão completa com dashboards inteligentes.</p>
+      <button onclick="openModal(1)">Ver detalhes</button>
     </div>
-    <div class="card" onclick="openModal(2)">
-      <h3>Sistema de Gestão</h3>
-      <p>Controle financeiro, vendas e processos internos.</p>
-    </div>
-    <div class="card" onclick="openModal(3)">
-      <h3>Projetos Sob Medida</h3>
-      <p>Soluções personalizadas para sua empresa.</p>
+    <div class="card">
+      <h3>Sistemas Sob Medida</h3>
+      <p>Soluções personalizadas para empresas.</p>
+      <button onclick="openModal(2)">Ver detalhes</button>
     </div>
   </div>
 </section>
 
 <!-- MODAL -->
-<div class="modal" id="modal">
+<div class="modal" id="modal" onclick="if(event.target===this) closeModal()">
   <div class="modal-box">
     <div class="modal-header">
       <h3 id="mTitle"></h3>
       <div class="close" onclick="closeModal()">×</div>
     </div>
-    <div class="video-modal" id="mVideo"></div>
-    <div class="images-row" id="mImages"></div>
-    <div class="action">
-      <a id="mLink" class="btn" target="_blank">Ver projeto</a>
+
+    <div class="modal-body">
+      <div class="video-modal" id="mVideo"></div>
+      <div class="images" id="mImages"></div>
+      <div class="cta">
+        <a id="mLink" target="_blank">Acessar projeto</a>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
+<footer>
+  <div class="footer">
     <div>
-      <div class="footer-logo"><span>CLENA</span></div>
-      <p>Desenvolvimento de sistemas, plataformas digitais e soluções tecnológicas sob medida.</p>
+      <h4>CLENA</h4>
+      <p>Desenvolvimento de sistemas, plataformas digitais e soluções sob medida.</p>
     </div>
-
     <div>
       <h4>Contato</h4>
-      <a href="https://wa.me/5575998112535" target="_blank">📱 WhatsApp</a>
-      <a href="mailto:contato@clena.com.br">✉️ contato@clena.com.br</a>
+      <a href="https://wa.me/55XXXXXXXXX">WhatsApp</a>
+      <a href="mailto:contato@clena.com.br">contato@clena.com.br</a>
     </div>
-
     <div>
-      <h4>Endereço</h4>
-      <p>Bahia • Brasil<br>Atendimento remoto em todo o país</p>
+      <h4>Localização</h4>
+      <p>Bahia • Brasil<br>Atendimento remoto</p>
     </div>
   </div>
-
-  <div class="footer-bottom">
-    © 2025 CLENA — Todos os direitos reservados
-  </div>
+  <div class="footer-bottom">© 2025 CLENA</div>
 </footer>
 
 <script>
@@ -313,13 +309,7 @@ const projetos=[
  l:"https://admin.clena.com.br"
 },
 {
- t:"Sistema de Gestão",
- v:"https://SEU-BUNNY/gestao.mp4",
- imgs:["https://SEU-BUNNY/g1.jpg","https://SEU-BUNNY/g2.jpg","https://SEU-BUNNY/g3.jpg"],
- l:"https://gestao.clena.com.br"
-},
-{
- t:"Projetos Sob Medida",
+ t:"Sistemas Sob Medida",
  v:"https://SEU-BUNNY/custom.mp4",
  imgs:["https://SEU-BUNNY/c1.jpg","https://SEU-BUNNY/c2.jpg","https://SEU-BUNNY/c3.jpg"],
  l:"https://clena.com.br"
@@ -328,21 +318,24 @@ const projetos=[
 
 function openModal(i){
  const p=projetos[i];
- heroVideo.pause(); heroVideo.muted=true;
+ heroVideo.pause();
  document.body.style.overflow="hidden";
 
  mTitle.textContent=p.t;
- mLink.href=p.l;
  mVideo.innerHTML=`<video autoplay controls><source src="${p.v}"></video>`;
  mImages.innerHTML=p.imgs.map(img=>`<img src="${img}">`).join("");
+ mLink.href=p.l;
+
  modal.style.display="flex";
 }
+
 function closeModal(){
  modal.style.display="none";
  mVideo.innerHTML="";
  mImages.innerHTML="";
  document.body.style.overflow="";
- heroVideo.play(); heroVideo.muted=true;
+ heroVideo.play();
+ heroVideo.muted=true;
 }
 </script>
 
