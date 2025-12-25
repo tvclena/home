@@ -2,119 +2,111 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>CLENA • Soluções Digitais</title>
+<title>CLENA • Sistemas Digitais</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 *{box-sizing:border-box;font-family:Inter,Arial}
-html,body{margin:0;width:100%;height:100%}
-body{
-  background:radial-gradient(60% 40% at 50% 0%, #1e293b 0%, #020617 70%);
-  color:#fff;
-  overflow-x:hidden;
-}
+html,body{margin:0;background:#020617;color:#fff}
 
-/* LOGO */
-.logo-float{
-  position:fixed;
-  top:20px;
-  left:20px;
-  z-index:200;
-}
-.logo-float img{
-  height:42px;
+/* BACKGROUND */
+body{
+  background:radial-gradient(70% 50% at 50% 0%, #0f172a 0%, #020617 70%);
 }
 
 /* HERO */
 .hero{
-  min-height:100vh;
   max-width:1400px;
   margin:auto;
-  padding:100px 20px 40px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:50px;
-  align-items:center;
+  padding:120px 20px 80px;
 }
 .hero h1{
   font-size:56px;
   font-weight:900;
-  line-height:1.1;
 }
-.hero h1 span{
+.hero span{
   background:linear-gradient(135deg,#38bdf8,#7c3aed);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .hero p{
   color:#94a3b8;
+  max-width:600px;
   font-size:18px;
-  max-width:520px;
-  margin-top:16px;
 }
 
-/* HERO MEDIA */
-.hero-media{
-  border-radius:32px;
-  overflow:hidden;
-  box-shadow:0 40px 120px rgba(0,0,0,.85);
-}
-.hero-media video,
-.hero-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* PROJECTS */
+/* GRID */
 .section{
   max-width:1400px;
   margin:auto;
-  padding:80px 20px 120px;
+  padding:40px 20px 120px;
 }
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:32px;
+  grid-template-columns:repeat(4,1fr);
+  gap:28px;
 }
+
+/* CARD */
 .card{
-  background:#0f172a;
+  background:linear-gradient(180deg,#0f172a,#020617);
   border-radius:28px;
-  padding:24px;
+  padding:22px;
+  position:relative;
   transition:.35s;
 }
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 40px 100px rgba(0,0,0,.9);
+  transform:translateY(-8px);
+  box-shadow:0 30px 80px rgba(0,0,0,.9);
+}
+
+/* LOGO BOLINHA */
+.card-logo{
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:48px;
+  height:48px;
+  background:#020617;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.7);
+}
+.card-logo img{
+  width:28px;
 }
 
 /* PREVIEW */
 .preview{
-  position:relative;
   border-radius:20px;
   overflow:hidden;
   height:180px;
   margin-bottom:18px;
 }
-.preview video,
-.preview img{
+.preview img,
+.preview video{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* CARD CONTENT */
-.card h3{margin:0 0 10px}
+/* TEXT */
+.card h3{margin:0 0 6px}
 .card p{
+  font-size:14px;
   color:#94a3b8;
-  font-size:15px;
   margin-bottom:18px;
 }
+
+/* BUTTON */
 .card button{
-  padding:14px 28px;
-  border-radius:18px;
+  width:100%;
+  padding:14px;
+  border-radius:16px;
   border:none;
-  font-weight:900;
+  font-weight:800;
   cursor:pointer;
   background:linear-gradient(135deg,#38bdf8,#7c3aed);
   color:#fff;
@@ -124,25 +116,23 @@ body{
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(2,6,23,.75);
-  backdrop-filter:blur(6px);
+  background:rgba(2,6,23,.85);
+  backdrop-filter:blur(8px);
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:300;
+  z-index:200;
 }
 .modal-box{
   width:90%;
-  max-width:1100px;
+  max-width:1000px;
   background:#020617;
   border-radius:32px;
-  padding:28px;
-  animation:scale .35s ease;
-  max-height:90vh;
-  overflow:hidden;
+  padding:32px;
+  animation:scale .3s ease;
 }
 @keyframes scale{
-  from{opacity:0;transform:scale(.92)}
+  from{opacity:0;transform:scale(.9)}
   to{opacity:1;transform:scale(1)}
 }
 .modal-header{
@@ -151,48 +141,51 @@ body{
   align-items:center;
 }
 .close{
-  font-size:34px;
+  font-size:32px;
   cursor:pointer;
 }
 
 /* MODAL BODY */
 .modal-body{
-  margin-top:18px;
-  overflow-y:auto;
-  max-height:70vh;
+  margin-top:20px;
 }
-
-/* MEDIA MODAL */
-.media-modal{
-  width:100%;
+.modal-media{
+  border-radius:24px;
+  overflow:hidden;
   aspect-ratio:16/9;
   margin-bottom:24px;
 }
-.media-modal video,
-.media-modal img{
+.modal-media img,
+.modal-media video{
   width:100%;
   height:100%;
-  border-radius:24px;
   object-fit:cover;
 }
-
-/* CTA */
-.cta{
+.modal-desc{
+  color:#cbd5f5;
+  font-size:16px;
+  line-height:1.6;
+  margin-bottom:28px;
+}
+.modal-cta{
   display:flex;
   justify-content:flex-end;
 }
-.cta a{
+.modal-cta a{
   padding:16px 44px;
-  border-radius:20px;
-  font-weight:900;
+  border-radius:18px;
   background:linear-gradient(135deg,#38bdf8,#7c3aed);
   color:#fff;
   text-decoration:none;
+  font-weight:900;
 }
 
-/* MOBILE */
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
+/* RESPONSIVE */
+@media(max-width:1200px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
   .hero h1{font-size:40px}
 }
 </style>
@@ -200,38 +193,29 @@ body{
 
 <body>
 
-<!-- LOGO -->
-<div class="logo-float">
-  <img src="logoqr.png">
-</div>
-
 <!-- HERO -->
 <section class="hero">
-  <div>
-    <h1><span>CLENA</span><br>Soluções Digitais</h1>
-    <p>Criação de QR Codes inteligentes com métricas de acesso, redirecionamento e controle total.</p>
-  </div>
-  <div class="hero-media">
-    <img src="https://SEU-BUNNY/hero.jpg">
-  </div>
+  <h1><span>CLENA</span><br>Soluções Digitais</h1>
+  <p>Sistemas modernos, inteligentes e escaláveis para controle, métricas e automação do seu negócio.</p>
 </section>
 
-<!-- PROJECTS -->
+<!-- CARDS -->
 <section class="section">
   <div class="grid" id="cards"></div>
 </section>
 
 <!-- MODAL -->
-<div class="modal" id="modal" onclick="if(event.target===this) closeModal()">
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal-box">
     <div class="modal-header">
-      <h3 id="mTitle"></h3>
+      <h2 id="mTitle"></h2>
       <div class="close" onclick="closeModal()">×</div>
     </div>
     <div class="modal-body">
-      <div class="media-modal" id="mMedia"></div>
-      <div class="cta">
-        <a id="mLink" target="_blank">Acessar projeto</a>
+      <div class="modal-media" id="mMedia"></div>
+      <div class="modal-desc" id="mDesc"></div>
+      <div class="modal-cta">
+        <a id="mLink" target="_blank">Acessar sistema</a>
       </div>
     </div>
   </div>
@@ -240,25 +224,40 @@ body{
 <script>
 const projetos=[
 {
- t:"Gerador de QR Code",
- type:"image", // image | video
- preview:"https://sistemas.b-cdn.net/Fotos%20de%20sistemas%20(Marketing)/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2001_23_55.png",
- media:"https://sistemas.b-cdn.net/Fotos%20de%20sistemas%20(Marketing)/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2001_23_55.png",
- l:"https://geradordeqr.clena.com.br/login.html"
+ title:"Gerador de QR Code",
+ desc:"Sistema completo para criação de QR Codes inteligentes com métricas de acesso, redirecionamento dinâmico e controle total dos códigos já gerados.",
+ type:"image",
+ preview:"https://SEU-BUNNY/qr-preview.jpg",
+ media:"https://SEU-BUNNY/qr-full.jpg",
+ logo:"logo-qr.png",
+ link:"https://qr.clena.com.br"
 },
 {
- t:"Painel Administrativo",
- type:"video",
- preview:"https://SEU-BUNNY/painel-preview.jpg",
- media:"https://SEU-BUNNY/painel.mp4",
- l:"https://admin.clena.com.br"
+ title:"Painel Administrativo",
+ desc:"Dashboard administrativo moderno com indicadores em tempo real, relatórios detalhados e gestão centralizada.",
+ type:"image",
+ preview:"https://SEU-BUNNY/admin-preview.jpg",
+ media:"https://SEU-BUNNY/admin-full.jpg",
+ logo:"logo-admin.png",
+ link:"https://admin.clena.com.br"
 },
 {
- t:"Sistemas Sob Medida",
+ title:"Sistemas Sob Medida",
+ desc:"Desenvolvimento de sistemas personalizados conforme a necessidade do seu negócio, com performance, segurança e escalabilidade.",
  type:"image",
  preview:"https://SEU-BUNNY/custom-preview.jpg",
  media:"https://SEU-BUNNY/custom-full.jpg",
- l:"https://clena.com.br"
+ logo:"logo-custom.png",
+ link:"https://clena.com.br"
+},
+{
+ title:"Automação & Integrações",
+ desc:"Automatização de processos, integrações com APIs, planilhas, pagamentos e sistemas legados.",
+ type:"image",
+ preview:"https://SEU-BUNNY/auto-preview.jpg",
+ media:"https://SEU-BUNNY/auto-full.jpg",
+ logo:"logo-custom.png",
+ link:"https://clena.com.br"
 }
 ];
 
@@ -268,29 +267,26 @@ const modal=document.getElementById("modal");
 projetos.forEach((p,i)=>{
  cards.innerHTML+=`
   <div class="card">
+    <div class="card-logo"><img src="${p.logo}"></div>
     <div class="preview">
-      ${p.type==="video"
-        ? `<video src="${p.media}" muted loop autoplay playsinline></video>`
-        : `<img src="${p.preview}">`}
+      <img src="${p.preview}">
     </div>
-    <h3>${p.t}</h3>
-    <p>Solução profissional com métricas e controle total.</p>
+    <h3>${p.title}</h3>
+    <p>${p.desc.slice(0,80)}...</p>
     <button onclick="openModal(${i})">Ver detalhes</button>
   </div>`;
 });
 
 function openModal(i){
  const p=projetos[i];
- document.body.style.overflow="hidden";
- mTitle.textContent=p.t;
-
- mMedia.innerHTML =
-   p.type==="video"
+ mTitle.textContent=p.title;
+ mDesc.textContent=p.desc;
+ mMedia.innerHTML = p.type==="video"
    ? `<video src="${p.media}" controls autoplay></video>`
    : `<img src="${p.media}">`;
-
- mLink.href=p.l;
+ mLink.href=p.link;
  modal.style.display="flex";
+ document.body.style.overflow="hidden";
 }
 
 function closeModal(){
